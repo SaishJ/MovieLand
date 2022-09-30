@@ -3,8 +3,9 @@ import {
   Container,
   CircularProgress,
   Grid,
-  TextField,
   Typography,
+  Paper,
+  Stack,
 } from "@mui/material";
 import "./App.css";
 import axios from "axios";
@@ -29,19 +30,34 @@ const App = () => {
 
   return (
     <div>
-      <Typography variant="h3" align="center" className="heading">
+      <Typography
+        variant="h3"
+        align="center"
+        className="heading"
+        sx={{ color: "#F8F9FA" }}
+      >
         MovieLand
       </Typography>
-      <Container maxWidth="lg" className="search-bar" align="center">
-        <TextField
-          id="outline-basic"
-          variant="outlined"
-          className="searchbar"
-          placeholder="Search Movie"
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-        />
-      </Container>
+      <Stack sx={{ display: "flex", alignItems: "center" }}>
+        <Paper
+          component="form"
+          sx={{
+            borderRadius: 20,
+            boredr: "1px solid #e3e3e3e",
+            pl: 2,
+            boxShadow: "none",
+            width: "300px",
+            margin: "15px 0",
+          }}
+        >
+          <input
+            className="search-bar"
+            placeholder="Search..."
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
+        </Paper>
+      </Stack>
       {movies?.length > 0 ? (
         <Container maxWidth="lg" className="card-container">
           <Grid container spacing={4}>
@@ -53,7 +69,9 @@ const App = () => {
       ) : (
         <Container maxWidth="md" align="center">
           <CircularProgress />
-          <Typography variant="h5">No Movies Found</Typography>
+          <Typography variant="h5" color="#F8F9FA">
+            No Movies Found
+          </Typography>
         </Container>
       )}
     </div>

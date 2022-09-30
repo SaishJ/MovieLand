@@ -9,10 +9,16 @@ function MovieList({ movie, index }) {
           <CardMedia
             component="img"
             image={movie.Poster}
-            className="card-image"
+            sx={{
+              width: "100%",
+              height: { md: "400px", sm: "300px", xs: "350px" },
+              objectFit: "cover",
+            }}
           />
-          <CardContent>
-            <h5>{movie.Title}</h5>
+          <CardContent sx={{ background: "#333", border: "none" }}>
+            <h5 style={{ margin: "2px", color: "#F8F9FA" }}>
+              {movie.Title.slice(0, 25)}
+            </h5>
           </CardContent>
         </Card>
       </Grid>

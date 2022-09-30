@@ -1,22 +1,27 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #222;
+}
+
 .heading {
   padding: 10px;
 }
 
 .search-bar {
-  padding: 10px;
+  padding: 12px;
+  border: none;
+  outline: none;
 }
 
 .card {
-  transition: transform 3s;
+  margin-bottom: 10px;
+  transition: transform 0.25s;
 }
 
 .card:hover {
   cursor: pointer;
   transform: scale(1.1);
-}
-
-.card-image {
-  height: 400px;
-  width: 100%;
-  object-fit: cover;
 }
